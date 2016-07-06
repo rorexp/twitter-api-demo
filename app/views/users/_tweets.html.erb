@@ -1,0 +1,18 @@
+<table class="table table-bordered table-striped table-hover table-responsive">
+  <thead>
+    <tr>
+      <th> Tweet ID </th>
+      <th> Text </th>
+      <th> Posted On </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td> <%= tweet.id %></td>
+        <td><%= tweet.text %> </td>
+        <td><%= tweet.created_at.strftime("%v") %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

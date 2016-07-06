@@ -1,0 +1,16 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+This application allows you to authenticate from twitter and fetch current
+year tweets from your timeline and display it. You can also view monthwise
+tweet graph as well.
+
+Things you may want to cover:
+
+1. Install bundler - gem install bundler
+2. bundle install
+3. rake db:create
+4. rake db:migrate
+5. Login with Twitter

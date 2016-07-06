@@ -1,0 +1,55 @@
+<div class="panel with-nav-tabs panel-info">
+  <div class="panel-heading">
+    <ul class="nav nav-pills">
+      <li class="active" ><a data-toggle="pill" href="#twitter">Tweets</a></li>
+      <li><a data-toggle="pill" href="#graph">Monthly Tweet Graph</a></li>
+    </ul>
+  </div>
+  <div class="panel-body">
+    <div class="tab-content">
+      <div id="twitter" class="tab-pane fade in active">
+        <%= render partial: 'tweets' %>
+      </div>
+      <div id="graph" class="tab-pane fade">
+        <div id="monthly-graph" class="container"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#monthly-graph').highcharts({
+      chart: {
+          type: 'column',
+          options3d: {
+              enabled: true,
+              alpha: 5,
+              beta: 25,
+              depth: 75
+          }
+      },
+      title: {
+          text: 'Monthwise Tweets - 2016'
+      },
+      plotOptions: {
+          column: {
+              depth: 25
+          }
+      },
+      xAxis: {
+        categories: Highcharts.getOptions().lang.shortMonths
+      },
+      yAxis: {
+          title: {
+              text: null
+          }
+      },
+      series: [{
+          name: 'Tweets',
+          data:  <%= @user.group_by_month %>
+      }]
+    });
+  });
+</script>
+
